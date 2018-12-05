@@ -48,6 +48,13 @@
     overflow: scroll;
 }
 
+.zoom-btn-container {
+    z-index: 2;
+    position: absolute;
+    right: 27px;
+    top: 47px;
+}
+
 .zoombtn{
     font-size: large;
 }
@@ -85,3 +92,5 @@
     color: #fff;
     background-color: #1c4a7b;
 }
+
+
