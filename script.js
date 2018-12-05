@@ -7,13 +7,15 @@
 let app = (function () {
 
     let svg = document.getElementById('Layer_1');
+    let svg$ = $('#Layer_1');
+
     let textElement = document.getElementsByTagName('text');
     let textLength = textElement.length;
 
-        function _setViewBox(viewBoxWidth, viewBoxHeight) {
-            //svg.setAttribute("viewBox", viewBoxX + ' ' + viewBoxY + ' ' + viewBoxWidth + ' ' + viewBoxHeight);
-            svg.style.width = "100%";
-        }
+    function _setViewBox(viewBoxWidth, viewBoxHeight) {
+        //svg.setAttribute("viewBox", viewBoxX + ' ' + viewBoxY + ' ' + viewBoxWidth + ' ' + viewBoxHeight);
+        svg.style.width = "100%";
+    }
 
     function _addIDsForAllTextElements() {
 
@@ -21,12 +23,14 @@ let app = (function () {
             let id = textElement[i].textContent;
             textElement[i].id = id;
             textElement[i].addEventListener('click', () => {
+
                 let element = document.getElementById(id);
-                console.log(element.parentElement);
+
                 element.scrollIntoView({
                     block: 'start',
                     behavior: 'smooth'
                 });
+
             });
         }
     }
@@ -37,24 +41,29 @@ let app = (function () {
         let zoomoutBtn = document.getElementById('zoomout');
         let zoomclearBtn = document.getElementById('zoomclear');
 
-
         zoominBtn.addEventListener('click', () => {
             //let currentWidth = svg.getAttribute('viewBox').split(" ")[2];
             //let currentHight = svg.getAttribute('viewBox').split(" ")[3];
             //_setViewBox(+currentWidth + 100, +currentHight + 50);
-            let currentWidth = svg.style.width;
-            svg.style.width = +currentWidth.slice(0, -1) - 20 + '%';
+            _zoomIn();
         });
         zoomoutBtn.addEventListener('click', () => {
             //let currentWidth = svg.getAttribute('viewBox').split(" ")[2];
             //let currentHight = svg.getAttribute('viewBox').split(" ")[3];
             //_setViewBox(+currentWidth - 100, +currentHight - 50);
-            let currentWidth = svg.style.width;
-            svg.style.width = +currentWidth.slice(0, -1) + 20 + '%';
+            _zoomOut();
         });
         zoomclearBtn.addEventListener('click', () => {
             let currentWidth = svg.style.width;
             svg.style.width = '100%';
+        });
+
+        svg$.bind('mousewheel', function (e) {
+            if (e.originalEvent.wheelDelta / 120 > 0) {
+                _zoomOut();
+            } else {
+                _zoomIn();
+            }
         });
 
     }
@@ -67,12 +76,21 @@ let app = (function () {
         let stands = document.getElementById('list-of-stands');
         let lines = '';
 
-        for (let i = 0; i < textLength; i++){
-            lines += '<li class="list-group-item">'+ textElement[i].textContent +'</li>';
+        for (let i = 0; i < textLength; i++) {
+            lines += '<li class="list-group-item">' + textElement[i].textContent + '</li>';
         }
 
         stands.innerHTML = lines;
+    }
 
+    function _zoomIn() {
+        let currentWidth = svg.style.width;
+        svg.style.width = +currentWidth.slice(0, -1) - 20 + '%';
+    }
+
+    function _zoomOut() {
+        let currentWidth = svg.style.width;
+        svg.style.width = +currentWidth.slice(0, -1) + 20 + '%';
     }
 
     return {
