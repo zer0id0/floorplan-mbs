@@ -25,10 +25,25 @@
 /* custome styling */
 #Layer_1{
     width: 150%;
+    cursor: 
+}
+
+#Layer_1 {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+ /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+#Layer_1:active { 
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
 }
 
 #container{
-    
+
     height: 90vh;
     overflow: scroll;
 }
