@@ -70,10 +70,10 @@
 .list-of-stands li:nth-child(odd){
     background-color: #fff;
 }
+
 .list-of-stands li:nth-child(even){
     background-color: #f1f1f1;
 }
-
 
 
 .list-of-stands>li:active{
