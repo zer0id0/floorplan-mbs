@@ -7,15 +7,15 @@
 let app = (function () {
 
     let svg = document.getElementById('Layer_1');
+    let textElement = document.getElementsByTagName('text');
+    let textLength = textElement.length;
 
-    function _setViewBox(viewBoxWidth, viewBoxHeight) {
-        //svg.setAttribute("viewBox", viewBoxX + ' ' + viewBoxY + ' ' + viewBoxWidth + ' ' + viewBoxHeight);
-        svg.style.width = "100%";
-    }
+        function _setViewBox(viewBoxWidth, viewBoxHeight) {
+            //svg.setAttribute("viewBox", viewBoxX + ' ' + viewBoxY + ' ' + viewBoxWidth + ' ' + viewBoxHeight);
+            svg.style.width = "100%";
+        }
 
     function _addIDsForAllTextElements() {
-        let textElement = document.getElementsByTagName('text');
-        let textLength = textElement.length;
 
         for (let i = 0; i < textLength; i++) {
             let id = textElement[i].textContent;
@@ -35,7 +35,8 @@ let app = (function () {
 
         let zoominBtn = document.getElementById('zoomin');
         let zoomoutBtn = document.getElementById('zoomout');
-        svg.style.width
+        let zoomclearBtn = document.getElementById('zoomclear');
+
 
         zoominBtn.addEventListener('click', () => {
             //let currentWidth = svg.getAttribute('viewBox').split(" ")[2];
@@ -51,6 +52,10 @@ let app = (function () {
             let currentWidth = svg.style.width;
             svg.style.width = +currentWidth.slice(0, -1) + 20 + '%';
         });
+        zoomclearBtn.addEventListener('click', () => {
+            let currentWidth = svg.style.width;
+            svg.style.width = '100%';
+        });
 
     }
 
@@ -58,11 +63,24 @@ let app = (function () {
         $("#Layer_1").draggable();
     }
 
+    function _populateListOfStands() {
+        let stands = document.getElementById('list-of-stands');
+        let lines = '';
+
+        for (let i = 0; i < textLength; i++){
+            lines += '<li>'+ textElement[i].textContent +'</li>';
+        }
+
+        stands.innerHTML = lines;
+
+    }
+
     return {
         makeDraggable: _makeDraggable,
         setViewBox: _setViewBox,
         addIDsForAllTextElements: _addIDsForAllTextElements,
-        addBtnEventListeners: _addBtnEventListeners
+        addBtnEventListeners: _addBtnEventListeners,
+        populateListOfStands: _populateListOfStands
     }
 })();
 
@@ -72,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     app.addIDsForAllTextElements();
     app.addBtnEventListeners();
     app.makeDraggable();
+    app.populateListOfStands();
 
 });
 

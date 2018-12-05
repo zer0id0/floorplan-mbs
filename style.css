@@ -43,12 +43,28 @@
 }
 
 #container{
-
+    width: 90vw;
     height: 90vh;
     overflow: scroll;
 }
 
 .zoombtn{
-    font-size: -webkit-xxx-large;
-    padding: 0.5rem
+    font-size: large;
+}
+
+.sidebar{
+    background: pink
+}
+
+.list-of-stands{
+    height: 82vh;
+    overflow-y: scroll;
+    overflow-x: hidden
+}
+
+.list-of-stands>li{
+    cursor: pointer;
+}
+.list-of-stands>li:active{
+    background: red
 }
