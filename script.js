@@ -68,7 +68,7 @@ let app = (function () {
         let lines = '';
 
         for (let i = 0; i < textLength; i++){
-            lines += '<li>'+ textElement[i].textContent +'</li>';
+            lines += '<li class="list-group-item">'+ textElement[i].textContent +'</li>';
         }
 
         stands.innerHTML = lines;

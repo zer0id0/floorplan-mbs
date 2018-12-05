@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Untitled Document</title>
+    <title>Floorplan app </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     
 </head>
 
 <body>
-    <nav ng-show="ctrl.crtView.showHeader" role="navigation" class="navbar navbar-default navbar-static-top fl-navbar-border" ng-style="{'font-weight':'bold', 'background-color':ctrl.crtView.headerColor}" style="font-weight: bold; background-color: rgb(236, 36, 66);">
-        SIGMA iGAMING 2018 - MALTA
+    <nav role="navigation" class="navbar navbar-default navbar-static-top fl-navbar-border base-prim" >
+        Floorplan App
     </nav>
 
 
     <div style="display: flex;">
 
         <div class="sidebar">
-            <div style="display: flex;">
-                <input type="text" id="searchInput">
-                <button id="search-btn">Search</button>
+            <div  class="input-group mb-3">
+                <input id="searchInput" class="form-control" type="text"  placeholder="Search for stands">
+                <div class="input-group-append">
+                    <button id="search-btn button-addon2" class="btn btn-outline-secondary" type="button">Search</button>
+                </div>
             </div>
-            <ul class="list-of-stands" id="list-of-stands">
+            <ul class="list-of-stands list-group " id="list-of-stands">
             </ul>
         </div>
 
