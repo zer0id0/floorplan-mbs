@@ -48,8 +48,20 @@
     overflow: scroll;
 }
 
+.zoom-btn-container {
+    z-index: 2;
+    position: absolute;
+    right: 27px;
+    top: 47px;
+}
+
 .zoombtn{
-    font-size: large;
+    border: 2px solid;
+    background: #fff;
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: -2px;
+    min-width: 40px;
 }
 
 .sidebar{
@@ -70,10 +82,10 @@
 .list-of-stands li:nth-child(odd){
     background-color: #fff;
 }
+
 .list-of-stands li:nth-child(even){
     background-color: #f1f1f1;
 }
-
 
 
 .list-of-stands>li:active{
@@ -85,3 +97,5 @@
     color: #fff;
     background-color: #1c4a7b;
 }
+
+
