@@ -56,7 +56,12 @@
 }
 
 .zoombtn{
-    font-size: large;
+    border: 2px solid;
+    background: #fff;
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: -2px;
+    min-width: 40px;
 }
 
 .sidebar{
