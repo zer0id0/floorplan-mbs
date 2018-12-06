@@ -162,7 +162,10 @@ let app = (function () {
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-    //document.getElementsByClassName('sidebar')[0].style.display = 'none';
+    document.getElementsByClassName('sidebar')[0].style.display = 'none';
+    document.getElementsByClassName('content-section')[0].style.display = 'none';   
+    //document.getElementsByClassName('zoom-btn-container')[0].style.display = 'none';
+
     app.setViewBox(1255, 595.3);
     app.addIDsForAllTextElements();
     app.addEventListeners();
@@ -171,3 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //to be used http://interactjs.io/ ...tomorrow
+$('html, body').css({
+    overflow: 'hidden',
+    height: '100%'
+});
