@@ -147,6 +147,12 @@ let app = (function () {
             block: 'end',
             behavior: 'smooth'
         });
+
+        //focus on selected element
+        let currentWidth = svg.style.width;
+        svg$.animate({ width: '500%' }, 'slow');
+        //svg.style.left = '0px';
+        //svg.style.top = '0px';
     }
 
     return {
@@ -159,13 +165,12 @@ let app = (function () {
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-    //document.getElementsByClassName('sidebar')[0].style.display = 'none';
+    document.getElementsByClassName('sidebar')[0].style.display = 'none';
     app.setViewBox(1255, 595.3);
     app.addIDsForAllTextElements();
     app.addEventListeners();
     app.makeDraggable();
     app.populateListOfStands();
-
 });
 
 //to be used http://interactjs.io/ ...tomorrow
