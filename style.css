@@ -1,5 +1,6 @@
 .app-container {
     margin: 0 auto;
+    min-height: 580px
 }
 
 /* SVG */
@@ -173,12 +174,16 @@ Custom media queries
 
 @media (max-width: 576px) {  
     
-    .sidebar{
+    /* .sidebar{
       display: none;
-    }
+    } */
 
     #container{
         width: 100%;
+    }
+
+    .app-container {
+        min-height: 580px
     }
 
 
