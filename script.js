@@ -140,8 +140,20 @@ let app = (function () {
             behavior: 'smooth'
         });
 
+        //console.log(target.getBBox());
+        //console.log(target.getScreenCTM());
+        //console.log(target.getBoundingClientRect());
+
+        let bbox = target.getBBox();
+
+        svg.style.left = '-' + (bbox.x) + 'px';
+        svg.style.top = '-' + (bbox.y) + 'px';
+
         //focus on selected element
-        //svg$.animate({ width: '500%' }, 'slow');
+        svg$.animate({
+            width: '500%'
+        }, 'slow');
+
     }
 
     function _filterListOfStands(value) {
@@ -182,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //to be used http://interactjs.io/ ...tomorrow
 
-//if mouse over SVG container disable page scrolling on zoo in/out SVG element
+//if mouse over SVG container disable page scrolling
 $('#container').on('scroll touchmove mousewheel', function (e) {
     e.preventDefault();
     e.stopPropagation();
