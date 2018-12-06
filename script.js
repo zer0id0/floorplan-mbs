@@ -11,6 +11,8 @@ let app = (function () {
     let textElement = document.getElementsByTagName('text');
     let textLength = textElement.length;
     let rectElement = document.getElementsByTagName('rect');
+    let searchInput = document.getElementById('searchInput');
+    let listOfStends = document.getElementById('list-of-stands');
 
     function _setViewBox(viewBoxWidth, viewBoxHeight) {
         //svg.setAttribute("viewBox", viewBoxX + ' ' + viewBoxY + ' ' + viewBoxWidth + ' ' + viewBoxHeight);
@@ -48,7 +50,7 @@ let app = (function () {
         let zoominBtn = document.getElementById('zoomin');
         let zoomoutBtn = document.getElementById('zoomout');
         let zoomclearBtn = document.getElementById('zoomclear');
-        let searchBtn = document.getElementById('search-btn');
+        let clearSearchBtn = document.getElementById('clear-search-btn');
 
         zoominBtn.addEventListener('click', () => {
             //let currentWidth = svg.getAttribute('viewBox').split(" ")[2];
@@ -71,25 +73,15 @@ let app = (function () {
             svg.style.top = '0px';
         });
 
-        searchBtn.addEventListener('click', () => {
-            let serchInput = document.getElementById('searchInput');
-            let listOfStends = document.getElementById('list-of-stands');
-
-            if (!serchInput.value) {
-                listOfStends.childNodes.forEach(e => e.style.display = 'block');
-            } else {
-                listOfStends.childNodes.forEach(e => {
-                    if (e.innerHTML.indexOf(serchInput.value) != -1) {
-                        e.style.display = 'block';
-
-                    } else {
-                        e.style.display = 'none';
-                    }
-                });
-            }
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            _filterListOfStands();
         });
 
+        searchInput.addEventListener('keyup', (e) => _filterListOfStands(e.target.value));
+
         svg$.bind('mousewheel', function (e) {
+
             if (e.originalEvent.wheelDelta / 120 > 0) {
                 _zoomOut();
             } else {
@@ -152,6 +144,21 @@ let app = (function () {
         //svg$.animate({ width: '500%' }, 'slow');
     }
 
+    function _filterListOfStands(value) {
+        if (!value) {
+            listOfStends.childNodes.forEach(e => e.style.display = 'block');
+        } else {
+            listOfStends.childNodes.forEach(e => {
+                if (e.innerHTML.indexOf(value) != -1) {
+                    e.style.display = 'block';
+
+                } else {
+                    e.style.display = 'none';
+                }
+            });
+        }
+    }
+
     return {
         makeDraggable: _makeDraggable,
         setViewBox: _setViewBox,
@@ -174,7 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //to be used http://interactjs.io/ ...tomorrow
-// $('#container').css({
-//     overflow: 'hidden',
-//     height: '100%'
-// });
+
+//if mouse over SVG container disable page scrolling on zoo in/out SVG element
+$('#container').on('scroll touchmove mousewheel', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+})
