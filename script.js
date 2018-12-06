@@ -188,3 +188,15 @@ $('#container').on('scroll touchmove mousewheel', function (e) {
     e.stopPropagation();
     return false;
 })
+
+
+// Toggle sidebar hamburger
+$(function() {
+    $('#sidebar-btn').click(function() {
+      $('#sidebar').toggleClass('visible');
+    //   $('#sidebar-btn').toggleClass('invisibile');
+
+    });
+
+
+  });

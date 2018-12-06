@@ -119,7 +119,7 @@
     height: 500px;
 }
 /* Side bar */
-.sidebar{
+#sidebar{
     background: #e9e9e9;
     z-index: 1;
     width: 25%;
@@ -127,17 +127,29 @@
     overflow: hidden;
 }
 
-#sidebar-btn {
+#sidebar.visible {
+    left:0;
+    transition:left 0.3s linear;
     display:inline-block;
-    vertical-align:middle;
-    width:20px;
-    height:15px;
-    cursor:pointer;
-    margin:20px;
-    position:absolute;
-    top:0;
-    right:-60px;
   }
+
+#sidebar-btn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 15px;
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 2;
+  }
+  
+  #sidebar-btn.invisibile {
+    display: none;
+  }
+
 #sidebar-btn span {
     height:1px;
     background:#1C1E1F;
@@ -167,7 +179,13 @@ No media query since this is the default in Bootstrap because it is "mobile firs
  
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {  
+    #sidebar{
+        display: inline-block;
+      }
+      #sidebar-btn {
+        display: none;
 
+      }
 }
  
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
@@ -196,12 +214,15 @@ Custom media queries
 @media (max-width: 950px) { 
  
 }
-
+/* Small devices (landscape phones, 576px down) */
 @media (max-width: 576px) {  
     
-    /* .sidebar{
+    #sidebar{
+      width: 100%;
+      position: relative;
+      top: 29px;
       display: none;
-    } */
+    }
 
     #container{
         width: 100%;
@@ -215,8 +236,8 @@ Custom media queries
     .zoom-btn-container {
         right: 5px;
         top: 45px;
-
     }
+    
 
 
 }
