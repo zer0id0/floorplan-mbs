@@ -108,6 +108,7 @@
 
 .app-wrapper {
     display: flex;
+    overflow: hidden;
 }
 
 .header {
@@ -151,7 +152,7 @@
   }
 
 #sidebar-btn span {
-    height:1px;
+    height:2px;
     background:#1C1E1F;
     margin-bottom:5px;
     display:block;
