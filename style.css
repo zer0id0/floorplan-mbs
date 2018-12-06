@@ -53,7 +53,7 @@
     /* width: 90vw;
     height: 90vh; */
     width: 90%;
-    overflow: scroll;
+    overflow: hidden;
     position: relative;
     max-height: 540px;
 }
