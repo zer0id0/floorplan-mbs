@@ -127,6 +127,17 @@
     overflow: hidden;
 }
 
+#sidebar-btn {
+    display:inline-block;
+    vertical-align:middle;
+    width:20px;
+    height:15px;
+    cursor:pointer;
+    margin:20px;
+    position:absolute;
+    top:0;
+    right:-60px;
+  }
 #sidebar-btn span {
     height:1px;
     background:#1C1E1F;
