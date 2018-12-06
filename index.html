@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <section class="content-section"></section>
+    <div class="app-container col-xs-12 col-md-8">
     <nav role="navigation" class="navbar navbar-default navbar-static-top fl-navbar-border base-prim" >
         Floorplan App
     </nav>
@@ -17,7 +19,7 @@
 
     <div style="display: flex;">
 
-        <div class="sidebar">
+        <aside class="sidebar">
             <div  class="input-group mb-3">
                 <input id="searchInput" class="form-control" type="text"  placeholder="Search for stands">
                 <div class="input-group-append">
@@ -26,7 +28,7 @@
             </div>
             <ul class="list-of-stands list-group " id="list-of-stands">
             </ul>
-        </div>
+        </aside>
 
         <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
         <div id="container">
@@ -614,17 +616,18 @@
                 <text transform="matrix(1 0 0 1 1139.7734 95.6387)" class="st1 st20">SMOKING</text>
             </svg>
             <!--viewBox="0 0 1255 595.3"-->
+            <div class="zoom-btn-container">
+                    <button type="button" class="zoombtn" id="zoomout">+</button>
+                    <button type="button" class="zoombtn" id="zoomin">-</button>
+                    <button type="button" class="zoombtn" id="zoomclear">X</button>
+                </div>
         </div>
 
-        <div class="zoom-btn-container">
-            <button type="button" class="zoombtn" id="zoomout">+</button>
-            <button type="button" class="zoombtn" id="zoomin">-</button>
-            <button type="button" class="zoombtn" id="zoomclear">X</button>
-        </div>
+   
 
     </div>
-
-
+    </div>
+    <section class="content-section"></section>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="https://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
     <script src="script.js"></script>
