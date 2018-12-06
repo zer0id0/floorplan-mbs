@@ -32,7 +32,7 @@
 /* custome styling */
 #Layer_1{
     width: 150%;
-    cursor: 
+
 }
 
 /*
@@ -53,7 +53,7 @@
     /* width: 90vw;
     height: 90vh; */
     width: 90%;
-    overflow: hidden;
+    overflow: scroll;
     position: relative;
     max-height: 540px;
 }
